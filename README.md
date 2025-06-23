@@ -12,7 +12,7 @@ Esta é uma API RESTful construída com Laravel para autenticação de usuários
 - Laravel 10+
 - Banco de dados configurado MySQL
 - JWT para autenticação via token
-- [Extra] Php MyAdmin 
+- [Extra] Php MyAdmin
 
 ---
 
@@ -20,6 +20,11 @@ Esta é uma API RESTful construída com Laravel para autenticação de usuários
 
 ```bash
     docker-compose up -d
+    docker-compose exec app bash
+    cp .env.example .env 
+    composer install
+    php artisan migrate --seed
+    php artisan storage:link
 ```
 ---
 
@@ -70,7 +75,7 @@ Authorization: Bearer {token}
 
 ## 📂 Uploads
 
-Imagens de perfil são salvas em:  
+Imagens de perfil são salvas em:
 ```
 storage/app/public/user_images/
 ```
@@ -86,10 +91,10 @@ http://localhost:8000/storage/user_images/{nome_da_imagem}
 
 ```json
 {
-  "message": "Erro de validação.",
-  "errors": {
-    "email": ["O campo e-mail é obrigatório."]
-  }
+    "message": "Erro de validação.",
+    "errors": {
+        "email": ["O campo e-mail é obrigatório."]
+    }
 }
 ```
 
